@@ -52,6 +52,12 @@
                                 </li>
                             @endif
                         @else
+                            <li class = "nav-item">
+                                <a href="{{url("example1")}}" class = "nav-link @yield("example1_active")">example1</a>
+                            </li>
+                            <li class = "nav-item">
+                                <a href="{{url("example2")}}" class = "nav-link @yield("example2_active")">example2</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
