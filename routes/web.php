@@ -38,6 +38,12 @@ Route:: group(['prefix'=>'layouts', 'as'=>'layouts'], function () {
         return view ('layouts.Wizard');
     });
 });
+Route:: group(['prefix'=>'abp', 'as'=>'abp'], function () {
+    Route:: get ("/abp", function ()
+    {
+        return view ('abp.abp');
+    });
+});
 Route::get('formulario', function () {
     return view('layouts.formulario');
 });

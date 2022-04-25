@@ -1,0 +1,6 @@
+.carousel-item{
+    height: 30rem;
+    background: rgba(241, 52, 52, 0.71);
+}
+.carousel-inner { text-align: center; }
+.carousel .item > img { display: inline-block; }

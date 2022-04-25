@@ -9,6 +9,7 @@
         <link rel="stylesheet"href="{{asset("css/bootstrap.min.css")}}">
         <link rel="stylesheet"href="{{asset("css/style.css")}}">
         <link rel="stylesheet"href="{{asset("fonts/style.css")}}">
+        <link rel="stylesheet"href="{{asset("abp/estilos.css")}}">
         <script type="text/text/javascript"src="{{asset("js/bootstrap.min.js")}}"></script>
     </head>
     <body class="bg-danger">
