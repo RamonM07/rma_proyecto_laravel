@@ -53,7 +53,7 @@
                             @endif
                         @else
                             <li class = "nav-item">
-                                <a href="{{url("example1")}}" class = "nav-link @yield("example1_active")">example1</a>
+                                <a href="{{url("tipos_reacciones")}}" class = "nav-link @yield("reaction_type_active")">Reacciones</a>
                             </li>
                             <li class = "nav-item">
                                 <a href="{{url("example2")}}" class = "nav-link @yield("example2_active")">example2</a>
@@ -81,7 +81,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="container py-4">
             @yield('content')
         </main>
     </div>

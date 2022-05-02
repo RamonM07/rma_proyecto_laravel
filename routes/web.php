@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\ReactionTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,7 @@ Route::get('example1', function () {
 Route::get('example2', function () {
     return view('examples.example2');
 });
+Route::resource("tipos_reacciones",ReactionTypeController::class);
 
 Auth::routes();
 
