@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Reaction_Type extends Model
 {
     use HasFactory;
+    protected  $fillable=["description"];
 }

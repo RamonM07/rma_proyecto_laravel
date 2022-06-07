@@ -52,11 +52,20 @@
                                 </li>
                             @endif
                         @else
-                            <li class = "nav-item">
-                                <a href="{{url("tipos_reacciones")}}" class = "nav-link @yield("reaction_type_active")">Reacciones</a>
+                        <li class = "nav-item">
+                                <a href="{{url("reacciones")}}" class = "nav-link @yield("reactions_active")">Reacciones</a>
                             </li>
                             <li class = "nav-item">
-                                <a href="{{url("example2")}}" class = "nav-link @yield("example2_active")">example2</a>
+                                <a href="{{url("tipos_reacciones")}}" class = "nav-link @yield("reaction_type_active")">Tipos de Reacciones</a>
+                            </li>
+                            <li class = "nav-item">
+                                <a href="{{url("publicaciones")}}" class = "nav-link @yield("posts_active")">Publicaciones</a>
+                            </li>
+                            <li class = "nav-item">
+                                <a href="{{url("tipos_publicaciones")}}" class = "nav-link @yield("post_type_active")">Tipos de Publicaciones</a>
+                            </li>
+                            <li class = "nav-item">
+                                <a href="{{url('orchards')}}" class = "nav-link @yield('orchards_active')">Orchards</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

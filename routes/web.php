@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\PostTypeController;
 use \App\Http\Controllers\ReactionTypeController;
+use \App\Http\Controllers\ReactionController;
+use \App\Http\Controllers\PostController;
+use \App\Http\Controllers\OrchardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +48,10 @@ Route:: group(['prefix'=>'abp', 'as'=>'abp'], function () {
     {
         return view ('abp.abp');
     });
+    Route:: get ("/index", function ()
+    {
+        return view ('abp.index');
+    });
 });
 Route::get('formulario', function () {
     return view('layouts.formulario');
@@ -54,7 +62,15 @@ Route::get('example1', function () {
 Route::get('example2', function () {
     return view('examples.example2');
 });
-Route::resource("tipos_reacciones",ReactionTypeController::class);
+Route::resource('tipos_reacciones',ReactionTypeController::class);
+
+Route::resource('tipos_publicaciones',PostTypeController::class);
+
+Route::resource('publicaciones',PostController::class);
+
+Route::resource('reacciones',ReactionController::class);
+
+Route::resource('orchards',OrchardController::class);
 
 Auth::routes();
 

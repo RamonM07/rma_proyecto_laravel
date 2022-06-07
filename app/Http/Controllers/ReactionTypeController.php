@@ -15,8 +15,8 @@ class ReactionTypeController extends Controller
     public function index()
     {
         //
-        $datos=Reaction_Type::all();
-        return view("reactions.index", compact("datos"));
+        $datos = Reaction_Type::all();
+        return view("reactions.index", compact('datos'));
     }
 
     /**
@@ -26,7 +26,7 @@ class ReactionTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view ("reactions.create");
     }
 
     /**
@@ -37,7 +37,11 @@ class ReactionTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "description"=>"required | max:25|min:3|unique:reaction__types",],
+            [],["description"=>"reacción"]);
+        Reaction_Type::create(["description"=>$request->description]);
+        return redirect()->route("tipos_reacciones.index");
     }
 
     /**
@@ -57,9 +61,12 @@ class ReactionTypeController extends Controller
      * @param  \App\Models\Reaction_Type  $reaction_Type
      * @return \Illuminate\Http\Response
      */
-    public function edit(Reaction_Type $reaction_Type)
+    public function edit(Reaction_Type $tipos_reaccione)
     {
         //
+        return view ("reactions.edit", compact ("tipos_reaccione"));
+        //$reacccion=Reaction_Type::findOrFail($id);
+        //return view("reactions.update", compact ('reaccion'));
     }
 
     /**
@@ -69,9 +76,11 @@ class ReactionTypeController extends Controller
      * @param  \App\Models\Reaction_Type  $reaction_Type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reaction_Type $reaction_Type)
+    public function update(Request $request, Reaction_Type $tipos_reaccione)
     {
         //
+        $tipos_reaccione->update(["description"=>$request->description]);
+        return redirect()->route("tipos_reacciones.index");
     }
 
     /**
@@ -80,8 +89,10 @@ class ReactionTypeController extends Controller
      * @param  \App\Models\Reaction_Type  $reaction_Type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reaction_Type $reaction_Type)
+    public function destroy(Reaction_Type $tipos_reaccione)
     {
-        //
+        $tipos_reaccione->delete();
+        return redirect()->route("tipos_reacciones.index");
     }
 }
+ 

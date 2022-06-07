@@ -15,6 +15,8 @@ class ReactionController extends Controller
     public function index()
     {
         //
+        $datos = Reaction::all();
+        return view("reactions2.index", compact('datos'));
     }
 
     /**
@@ -69,7 +71,7 @@ class ReactionController extends Controller
      */
     public function update(Request $request, Reaction $reaction)
     {
-        //
+        
     }
 
     /**

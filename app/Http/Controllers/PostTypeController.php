@@ -15,6 +15,8 @@ class PostTypeController extends Controller
     public function index()
     {
         //
+        $datos = PostType::all();
+        return view("post_types.index", compact('datos'));
     }
 
     /**
@@ -25,6 +27,7 @@ class PostTypeController extends Controller
     public function create()
     {
         //
+        return view ('post_types.create');
     }
 
     /**
@@ -36,6 +39,11 @@ class PostTypeController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            "description"=>"required | max:25|min:3|unique:post_types",],
+            [],["description"=>"publicación"]);
+        PostType::create(["description"=>$request->description]);
+        return redirect()->route("tipos_publicaciones.index");
     }
 
     /**
@@ -55,9 +63,10 @@ class PostTypeController extends Controller
      * @param  \App\Models\PostType  $postType
      * @return \Illuminate\Http\Response
      */
-    public function edit(PostType $postType)
+    public function edit(PostType $tipos_publicacione)
     {
         //
+        return view ("post_types.edit", compact ("tipos_publicacione"));
     }
 
     /**
@@ -67,9 +76,14 @@ class PostTypeController extends Controller
      * @param  \App\Models\PostType  $postType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PostType $postType)
+    public function update(Request $request, PostType $tipos_publicacione)
     {
         //
+        $request->validate([
+            "description"=>"required | max:25|min:3|unique:post_types",],
+            [],["description"=>"publicación"]);
+        $tipos_publicacione->update(["description"=>$request->description]);
+        return redirect()->route("tipos_publicaciones.index");
     }
 
     /**
@@ -78,8 +92,10 @@ class PostTypeController extends Controller
      * @param  \App\Models\PostType  $postType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PostType $postType)
+    public function destroy(PostType $tipos_publicacione)
     {
         //
+        $tipos_publicacione->delete();
+        return redirect()->route("tipos_publicaciones.index");
     }
 }
